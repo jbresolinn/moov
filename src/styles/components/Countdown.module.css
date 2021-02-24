@@ -70,7 +70,12 @@ button.startCountdownActive:not(:disabled):hover {
 }
 
 button.startCountdown:disabled {
-  cursor    : not-allowed;
-  background: var(--white);
-  color     : var(--text);
+  cursor       : not-allowed;
+  background   : var(--white);
+  color        : var(--text);
+  border-bottom: 4px solid var(--green);
+}
+
+button.startCountdown:disabled>img {
+  margin-left: 1rem;
 }
