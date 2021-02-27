@@ -1,17 +1,83 @@
 .container {
-  height   : 100vh;
-  max-width: 992px;
-  margin   : 0 auto;
-  padding  : 2.5rem 2rem;
+  width     : 100vw;
+  height    : 100vh;
+  background: var(--blue);
 
-  display       : flex;
-  flex-direction: column;
+  display        : flex;
+  justify-content: center;
+  flex-direction : column;
+  align-items    : flex-end;
+
+  position: relative;
 }
 
-.container section {
-  flex                 : 1;
-  display              : grid;
-  grid-template-columns: 1fr 1fr;
-  gap                  : 6.25rem;
-  align-content        : center;
+.container>img {
+  position : absolute;
+  left     : 0;
+  max-width: 100%;
+}
+
+.content {
+  display       : flex;
+  flex-direction: column;
+  max-width     : 400px;
+  margin-right  : 25%;
+}
+
+@media(max-width: 768px) {
+  .content {
+    margin : 0 auto;
+    padding: 1rem;
+  }
+}
+
+.content header {
+  margin-bottom: 116px;
+}
+
+.content header p {
+  font-size  : 1.25rem;
+  line-height: 1.5;
+  color      : var(--text-highlight);
+  margin-top : 1.25rem;
+}
+
+.content>span {
+  font-size  : 1.75rem;
+  color      : var(--white);
+  font-weight: 600;
+}
+
+.content button {
+  width        : 100%;
+  height       : 80px;
+  border-radius: 5px;
+  border       : 0;
+  font-size    : 1.25rem;
+  font-weight  : 500;
+  padding      : 0 1.25rem;
+  margin-top   : 1.25rem;
+  transition   : filter .2s;
+
+  display    : flex;
+  align-items: center;
+}
+
+.content button:hover,
+.content button:focus {
+  filter: contrast(0.9);
+}
+
+.content button img {
+  margin-right: 1.25rem;
+}
+
+.content button.githubLogin {
+  background: #181717;
+  color     : var(--white);
+}
+
+.content button.googleLogin {
+  background: var(--white);
+  color     : #757575;
 }
