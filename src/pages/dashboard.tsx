@@ -9,6 +9,7 @@ import { CountdownProvider } from "../contexts/CountdownContext";
 import { ChallengesProvider } from "../contexts/ChallengesContext";
 
 import styles from '../styles/pages/Dashboard.module.css'
+import { Navbar } from '../components/Navbar';
 
 interface DashboardProps {
   level: number;
@@ -29,6 +30,7 @@ export default function Dashboard(props: DashboardProps) {
           <title>dashboard | moov</title>
         </Head>
 
+        <Navbar />
         <ExperienceBar />
 
         <CountdownProvider>
