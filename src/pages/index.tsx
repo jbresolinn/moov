@@ -22,18 +22,20 @@ export default function Home() {
       <div className={styles.content}>
         <header>
           <img src="/logo-full-white.svg" alt="moov logo" />
-          <p>A combination of the pomodoro technique with simple exercises that will improve your quality of life.</p>
         </header>
 
-        <span>Login to continue</span>
-        <button type="button" className={styles.githubLogin} onClick={(event) => goDashboard(event)}>
+        <h1>Welcome</h1>
+        <p>
           <img src="/icons/github.svg" alt="github icon" />
-        Login with Github
-      </button>
-        <button type="button" className={styles.googleLogin}>
-          <img src="/icons/google.svg" alt="google icon" />
-        Login with Google
-      </button>
+          Login with your Github to continue.
+        </p>
+        <div>
+          <input type="text" placeholder="Enter your username" />
+          <button type="button">
+            <img src="/icons/arrow-right.svg" alt="white arrow" />
+          </button>
+        </div>
+        <small>Don't you have a Github account? <strong><a href="https://github.com/join">Create account.</a></strong></small>
       </div>
     </div>
   )

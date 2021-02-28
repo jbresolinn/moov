@@ -32,52 +32,95 @@
 }
 
 .content header {
-  margin-bottom: 116px;
+  margin-bottom: 6rem;
 }
 
 .content header p {
   font-size  : 1.25rem;
   line-height: 1.5;
   color      : var(--text-highlight);
-  margin-top : 1.25rem;
+  margin-top : 1.5rem;
 }
 
-.content>span {
-  font-size  : 1.75rem;
+.content>h1 {
+  font-size  : 2.25rem;
   color      : var(--white);
   font-weight: 600;
 }
 
-.content button {
-  width        : 100%;
-  height       : 80px;
-  border-radius: 5px;
-  border       : 0;
-  font-size    : 1.25rem;
-  font-weight  : 500;
-  padding      : 0 1.25rem;
-  margin-top   : 1.25rem;
-  transition   : filter .2s;
+.content p {
+  width    : 100%;
+  max-width: 318px;
 
   display    : flex;
   align-items: center;
+
+  font-size  : 1.25rem;
+  color      : var(--text-highlight);
+  text-align : left;
+  line-height: 1.4;
+  margin-top : 1.5rem;
 }
 
-.content button:hover,
-.content button:focus {
-  filter: contrast(0.9);
-}
-
-.content button img {
+.content p img {
+  width       : 40px;
+  height      : 40px;
   margin-right: 1.25rem;
 }
 
-.content button.githubLogin {
-  background: #181717;
-  color     : var(--white);
+.content>div {
+  width      : 100%;
+  display    : flex;
+  align-items: center;
+  margin-top : 1.25rem;
+  position   : relative;
 }
 
-.content button.googleLogin {
-  background: var(--white);
-  color     : #757575;
+.content>div input {
+  width        : 100%;
+  height       : 80px;
+  border       : 0;
+  border-radius: 5px 0 0 5px;
+  padding      : 1.25rem 2rem;
+  background   : linear-gradient(90deg, #4953B8 0%, rgba(73, 83, 184, 0.2) 100%);
+  color        : var(--white);
+  outline-color: var(--blue-dark);
+}
+
+.content div input::placeholder {
+  color: var(--text-highlight);
+}
+
+.content div button {
+  width        : 80px;
+  height       : 80px;
+  background   : var(--blue-dark);
+  border-radius: 0 5px 5px 0;
+
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+
+  border: 0;
+
+  position     : absolute;
+  right        : 0;
+  outline-color: var(--blue-dark);
+
+  transition: filter .2s;
+}
+
+.content div button:hover,
+.content div button:focus {
+  filter: brightness(0.9);
+}
+
+.content small {
+  font-size : 1rem;
+  color     : var(--text-highlight);
+  margin-top: 3rem;
+}
+
+.content small a {
+  color: var(--white);
 }
