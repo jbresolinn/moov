@@ -1,13 +1,16 @@
 import Head from 'next/head';
-import Router from 'next/router'
+import { FormEvent, useState } from 'react';
+import axios from 'axios'
 
 import styles from '../styles/pages/Home.module.css'
 
 export default function Home() {
+  const [username, setUsername] = useState(null);
 
-  function goDashboard(event) {
+  function handleSignIn(event: FormEvent) {
     event.preventDefault();
-    Router.push('/dashboard');
+
+    axios.post('/api/login', { username })
   }
 
   return (
@@ -29,14 +32,14 @@ export default function Home() {
           <img src="/icons/github.svg" alt="github icon" />
           Login with your Github to continue.
         </p>
-        <div>
-          <input type="text" placeholder="Enter your username" />
-          <button type="button">
+        <form>
+          <input type="text" placeholder="Enter your username" onChange={(event) => setUsername(event.target.value)} />
+          <button type="submit" onClick={handleSignIn}>
             <img src="/icons/arrow-right.svg" alt="white arrow" />
           </button>
-        </div>
+        </form>
         <small>Don't you have a Github account? <strong><a href="https://github.com/join">Create account.</a></strong></small>
       </div>
-    </div>
+    </div >
   )
 } 
