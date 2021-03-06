@@ -3,7 +3,6 @@ import axios from 'axios'
 
 interface UserContextData {
   user: UserProps
-  signIn: () => void
 }
 
 interface UserProviderProps {
@@ -23,10 +22,6 @@ export const UserContext = createContext({} as UserContextData);
 export function UserProvider({ children, ...rest }: UserProviderProps) {
   const [user, setUser] = useState(rest.user ?? {} as UserProps);
 
-  function signIn() {
-    console.log('sign in function');
-  }
-
   useEffect(() => {
     setUser(rest.user);
   }, [rest.user])
@@ -34,8 +29,7 @@ export function UserProvider({ children, ...rest }: UserProviderProps) {
 
   return (
     <UserContext.Provider value={{
-      user,
-      signIn
+      user
     }}>
       {children}
     </UserContext.Provider>

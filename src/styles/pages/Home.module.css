@@ -48,7 +48,7 @@
   font-weight: 600;
 }
 
-.content p {
+.content>p {
   width    : 100%;
   max-width: 318px;
 
@@ -62,7 +62,7 @@
   margin-top : 1.5rem;
 }
 
-.content p img {
+.content>p img {
   width       : 40px;
   height      : 40px;
   margin-right: 1.25rem;
@@ -115,6 +115,34 @@
   filter: brightness(0.9);
 }
 
+.content form button .spinner {
+  width : 24px;
+  height: 24px;
+
+  position: relative;
+  margin  : 100px auto;
+}
+
+.content form button .spinner .bounce1,
+.bounce2 {
+  width           : 100%;
+  height          : 100%;
+  border-radius   : 50%;
+  background-color: var(--text-highlight);
+  opacity         : 0.6;
+  position        : absolute;
+  top             : 0;
+  left            : 0;
+
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation        : sk-bounce 2.0s infinite ease-in-out;
+}
+
+.content form button .spinner .bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay        : -1.0s;
+}
+
 .content small {
   font-size : 1rem;
   color     : var(--text-highlight);
@@ -123,4 +151,31 @@
 
 .content small a {
   color: var(--white);
+}
+
+
+@-webkit-keyframes sk-bounce {
+
+  0%,
+  100% {
+    -webkit-transform: scale(0.0)
+  }
+
+  50% {
+    -webkit-transform: scale(1.0)
+  }
+}
+
+@keyframes sk-bounce {
+
+  0%,
+  100% {
+    transform        : scale(0.0);
+    -webkit-transform: scale(0.0);
+  }
+
+  50% {
+    transform        : scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
 }

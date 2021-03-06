@@ -25,6 +25,11 @@ async function connectToDatabase(uri: string) {
   return db;
 }
 
+interface UserNotFound {
+  message: string;
+  documentation_url: string
+}
+
 export default async (request: NowRequest, response: NowResponse) => {
 
   const { username } = request.body;
@@ -36,20 +41,21 @@ export default async (request: NowRequest, response: NowResponse) => {
   const userExists = await collection.findOne({ username });
 
   if (!userExists) {
-    const { data } = await axios.get(`${process.env.GITHUB_URL}/users/${username}`);
+    try {
+      const { data } = await axios.get(`${process.env.GITHUB_URL}/users/${username}`);
 
-    if (data) {
       const user = await collection.insertOne({
         name: data.name,
         avatar: data.avatar_url,
         username,
         createdAt: new Date()
-      })
 
+      })
       return response.status(201).json(user);
+    } catch (error) {
+      return response.status(400).json(error);
     }
   }
 
   return response.status(200).json(userExists);
-
 }
